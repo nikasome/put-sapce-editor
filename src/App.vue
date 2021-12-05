@@ -1,5 +1,6 @@
 <template>
-  <Editor msg="入力すると自動でスペースが入力されます。"/>
+  <h2>文字の間にスペースを入力してくれるジェネレーター</h2>
+  <Editor/>
 </template>
 
 <script>
@@ -15,6 +16,10 @@ export default {
 
 <style>
 #app {
-  color: #748799;
-}
-</style>
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}</style>
