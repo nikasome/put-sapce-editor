@@ -1,8 +1,37 @@
 <template>
-  <div class="editor-area">
-    <textarea class="put-space-editor" rows="3" cols="72" placeholder="文字を入力すると自動でスペースが入ります。" autofocus v-model="inputText"/>
-    <textarea class="put-space-result" rows="3" cols="72" disabled v-model="putSpaceInputText"/>
-  </div>
+  <el-row>
+    <el-col :span="16" :offset="4">
+      <div class="label">入力</div>
+      <el-input
+        v-model="inputText"
+        :autosize="{ minRows: 2 }"
+        type="textarea"
+        placeholder="文字を入力すると自動でスペースが入ります。"
+        autofocus
+        maxlength="1000"
+      />
+      <div class="sub-label">文字数</div>
+    </el-col>
+  </el-row>
+  <el-row>
+    <el-col :span="16" :offset="4">
+      <div class="label">出力</div>
+      <el-input
+        v-model="putSpaceInputText"
+        :autosize="{ minRows: 2 }"
+        type="textarea"
+        placeholder="自動でスペースが入った文字がここに出ます。"
+        disabled
+      />
+      <div class="sub-label">文字数</div>
+    </el-col>
+  </el-row>
+  <el-row>
+    <el-col :span="16" :offset="4" style="text-align: end">
+      <el-button type="text" style="color: var(--el-color-danger); margin-right: 12px;">削除</el-button>
+      <el-button type="primary">コピー</el-button>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -24,22 +53,16 @@ export default {
 </script>
 
 <style>
-.editor-area {
-  margin-top: 10px;
-  width: 540px;
+.el-row {
+  margin-bottom: 20px;
 }
-
-.put-space-editor {
-  resize: vertical;
-  min-height: 30px;
-  max-height: 360px;
-  font-size: 14px;
+.label {
+  font-size: var(--el-font-size-medium);
+  color: var(--el-color-info);
 }
-
-.put-space-result {
-  resize: vertical;
-  min-height: 30px;
-  max-height: 540px;
-  font-size: 14px;
+.sub-label {
+  font-size: var(--el-font-size-base);
+  color: var(--el-color-info);
+  text-align: end;
 }
 </style>
