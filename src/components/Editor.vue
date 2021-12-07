@@ -28,18 +28,41 @@
   </el-row>
   <el-row>
     <el-col :span="16" :offset="4" style="text-align: end">
-      <el-button type="text" style="color: var(--el-color-danger); margin-right: 12px;">削除</el-button>
-      <el-button type="primary">コピー</el-button>
+      <el-button type="text" @click="reset" style="color: var(--el-color-danger); margin-right: 12px;">削除</el-button>
+      <el-button type="primary" @click="copy">コピー</el-button>
     </el-col>
   </el-row>
 </template>
 
 <script>
+import { ElMessage } from "element-plus";
 export default {
   name: 'Editor',
   data() {
     return {
       inputText: ''
+    }
+  },
+  methods: {
+    reset() {
+      this.inputText = '';
+    },
+    copy() {
+      if (!this.putSpaceInputText.trim() == '')
+      {
+        navigator.clipboard.writeText(this.putSpaceInputText)
+          .then(() => {
+            ElMessage({
+              showClose: true,
+              message: "クリップボードにコピーしました。",
+              type: "success",
+              duration: 1000
+            })
+          })
+          .catch(e => {
+            console.error(e)
+          });
+      }
     }
   },
   computed: {
