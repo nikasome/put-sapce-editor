@@ -27,5 +27,6 @@ export default {
 .el-header {
   text-align: center;
   line-height: 60px;
+  margin-top: 30px;
 }
 </style>
