@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="common-layout">
+    <el-container>
+      <el-header>文字の間にスペースを入力してくれるジェネレーター</el-header>
+      <el-main><Editor/></el-main>
+    </el-container>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Editor from './components/Editor.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Editor
   }
 }
 </script>
@@ -19,8 +23,10 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.el-header {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  line-height: 60px;
+  margin-top: 30px;
 }
 </style>
